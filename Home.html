@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width , initial-scale=1">
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+        <link rel="stylesheet" href="style/style.css">
+        <title>Home SMN</title>
+    </head>
+    <body>
+        <div id="app" >
+            
+            <h1 class="text-center">Servicio meteorológico nacional (SMN)</h1>
+            <div class="container">
+                <h4>CONDICIONES METEOROLÓGICAS EN ARGENTINA</h4>
+                <table id="tablaPronostico" class="table .table-hover .table-striped table-fixed">
+                    <tbody>
+                        <template v-for = "value in climaDeCiudad">
+                            <tr>
+                                <td>
+                                    <div class="row text-center" >
+                                        <div class="col-sm-2 fecha">{{value.fecha_base}}</div>
+                                       <div class = "col-sm-3 ">{{value.nombre}}{{", "}}{{value.provincia}}</div>
+                                       <div class = "col-sm-3">
+                                           <div class="temperatura izq">{{value.temp}}{{"°"}}</div>
+                                           <div class="der descripcion"><img class="img" :src = "value.src"><br>{{value.descripcion}}</div>
+                                       </div>
+                                       <div class = "col-sm-1"><i class="fas fa-wind viento"></i><br>{{value.direccionViento}}<br>{{value.velViento}} {{"Km/h"}}</div>
+                                       <div class = "col-sm-2"><b>{{"Humedad:"}}</b> {{value.humedad}} {{"%"}}<br><b>{{"Visibilidad:"}}</b> {{value.visibilidad}} {{"Km"}}</div>
+                                       <div class = col-sm-1>
+                                           <span>
+                                               <button :id="'+'+value.id"  type="button"  v-on:click="mostrarInfoAdicional(value.id)" ><i class="fas fa-plus"></i></button>
+                                           </span>
+                                           <span>
+                                               <button :id="'-'+value.id" class="ocultar" type="button"  v-on:click="ocultar(value.id)"> <i class="fas fa-minus"></i></button>
+                                           </span>
+                                       </div>
+                                    </div>
+                               </td>
+                            </tr>
+                            <tr :id="value.id" >   
+                                
+                            </tr>
+                        </template>          
+                    </tbody>
+                </table>
+            </div>
+            
+        </div>
+        <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>     
+        <script src="js/script.js"></script> 
+        <script src="https://kit.fontawesome.com/a076d05399.js"></script>
+        <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
+        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
+    </body>
+</html>

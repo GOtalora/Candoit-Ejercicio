@@ -1,0 +1,91 @@
+.container{
+    padding-left: 0px;
+    padding-right: 0px;
+}
+/***Textos***/
+h1,h4{
+    padding: 4% 0%;
+}
+h1{
+    background-image:url(https://www.smn.gob.ar/sites/default/files/inicio-b_2.jpg);
+    background-size: cover;
+    margin: 0px;
+}
+p{
+    margin-bottom: 0px!important;
+}
+.fecha{
+    font-weight: bold;
+    font-size: 18px;
+    width: 1%!important;
+}
+.subFecha{
+    font-weight: bold;
+    width: 1%!important;
+}
+.temperatura{
+    font-size: 45px;
+}
+.etiqueta{
+    font-weight: bold;
+}
+/***Tabla***/
+.row{
+    padding: 0px;
+     display: flex;
+  align-items: center;
+  justify-content: center;
+    margin-right: 0px; 
+    margin-left: 0px;
+}
+.row > div{
+    text-align: center;
+    padding: 0px!important;
+}
+.dias_pronostico > div{
+    font-size: 14px;
+}
+td{
+    padding: 0px!important;
+}
+td div div{
+    padding: 0px!important;
+}
+tr{
+    border: #7888A1 2px solid;
+}
+.dias_pronostico{
+    padding: 1% 0;
+    border-bottom: #C6CAD1 2px solid;
+}
+.seleccionado{
+    background-color: #D7DFEE;
+}
+.izq{
+    width: 50%;
+    float: left;
+}
+.der{
+    width: 50%;
+    float: right;
+}
+.table-fixed tbody {
+  height: 400px;
+  overflow-y: auto;
+  width: 100%;
+}
+
+.table-fixed tbody{
+  display: block;
+}
+
+
+/******pictures******/
+.fas {
+    font-size: 1.8em;
+}
+/************/
+.ocultar{
+    display: none;
+}
+
