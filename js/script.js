@@ -27,6 +27,7 @@ const app = new Vue ({
             this.ciudades.forEach(x => {
                 let clima ={
                     fecha_base: x.forecast.date_time.substring(0,10),
+                    hora: x.forecast.date_time.substring(11),
                     id: x._id,
                     nombre: x.name,
                     provincia: x.province,
@@ -60,7 +61,8 @@ const app = new Vue ({
              } )
             if(document.getElementById(id).innerHTML == ""){
                 if(aux.length>1)
-                   document.getElementById(id).innerHTML += `<p><b>Pronóstico para los siguientes ${aux.length} días</b></p>`
+                   document.getElementById(id).innerHTML += `<p><b>Pronóstico para los siguientes ${aux.length} días</b></p>
+                    `
                 aux.forEach(x => {
                 document.getElementById(id).innerHTML += `
                             <div class = "row text-center dias_pronostico" >
