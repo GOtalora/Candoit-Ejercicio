@@ -60,26 +60,39 @@ const app = new Vue ({
                  (x.id == id) ? x.pronostico.filter(y => aux.push(y)) : null
              } )
             if(document.getElementById(id).innerHTML == ""){
-                if(aux.length>1)
-                   document.getElementById(id).innerHTML += `<p><b>Pronóstico para los siguientes ${aux.length} días</b></p>
-                    `
-                aux.forEach(x => {
-                document.getElementById(id).innerHTML += `
-                            <div class = "row text-center dias_pronostico" >
-                                <div class = "col-sm-2 subFecha">${x.fecha}</div>
-                                <div class="col-sm-1">
-                                    <b>Max:</b> ${x.temp_max}°<br><br>
-                                    <b>Min:</b> ${x.temp_min}°
+                for(i=0; i<aux.length;i++){
+                    if(i==0){
+                        document.getElementById(id).innerHTML += `
+                            <div class = "row text-center dias_pronostico">
+                                <div class="col-sm-2">
+                                    <b>Max:</b> ${aux[i].temp_max}°<br><br>
+                                    <b>Min:</b> ${aux[i].temp_min}°
                                 </div>
                                 <div class="col-sm-8">
-                                    <b>Por la mañana:</b> ${x.mañana}<br>
-                                    <b>Por la tarde:</b> ${x.tarde}
+                                    <b>Por la mañana:</b> ${aux[i].mañana}<br>
+                                    <b>Por la tarde:</b> ${aux[i].tarde}
                                 </div>
                             <div>`
-            })
-                
-            }
-            
+                    }else{
+                        if(i==1){
+                            document.getElementById(id).innerHTML += `<p class="texto"><b>Pronóstico para los siguientes ${aux.length-1} días</b></p>`
+                        }
+                        document.getElementById(id).innerHTML += `
+                            <div class = "row text-center dias_pronostico">
+                                <div class = "col-sm-2 subFecha">${aux[i].fecha}</div>
+                                <div class="col-sm-2">
+                                    <b>Max:</b> ${aux[i].temp_max}°<br><br>
+                                    <b>Min:</b> ${aux[i].temp_min}°
+                                </div>
+                                <div class="col-sm-8">
+                                    <b>Por la mañana:</b> ${aux[i].mañana}<br>
+                                    <b>Por la tarde:</b> ${aux[i].tarde}
+                                </div>
+                            <div>`
+                    }
+                }
+                   
+            }            
             document.getElementById('-'+id).classList.remove("ocultar")
             document.getElementById('+'+id).classList.add("ocultar") 
             document.getElementById(id).classList.remove("ocultar")
